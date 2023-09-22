@@ -25,10 +25,17 @@ return [
 ```
 You need to override `url` `username` `password`
 
-**Note**:  You need to have cron setup for laravel project.
+**Note**:  You need to have cron setup every minute.
 ``` bash
 php artisan schedule:run
 ```
+####or Manually run these command in order to fetch api key and devices
+``` bash
+php artisan shellhub:refresh_api_key
+php artisan shellhub:sync
+```
+
+
 If u need to sync immediately, You can run this command manually.
 
 ### Testing
