@@ -29,7 +29,8 @@ You need to override `url` `username` `password`
 ``` bash
 php artisan schedule:run
 ```
-####or Manually run these command in order to fetch api key and devices
+#### or 
+Manually run these command in order to fetch api key and devices
 ``` bash
 php artisan shellhub:refresh_api_key
 php artisan shellhub:sync
