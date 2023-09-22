@@ -5,6 +5,53 @@
     <title>ShellHub - PHP</title>
 </head>
 <body>
-<h1>ShellHub - PHP<</h1>
+<h1 id="shellhub-helper-for-laravel">ShellHub Helper For Laravel</h1>
+<p><a href="https://packagist.org/packages/yashveersingh/shellhub-php"><img
+        src="https://img.shields.io/packagist/v/yashveersingh/shellhub-php.svg?style=flat-square"
+        alt="Latest Version on Packagist"></a></p>
+<p><a href="https://packagist.org/packages/yashveersingh/shellhub-php"><img
+        src="https://img.shields.io/packagist/dt/yashveersingh/shellhub-php.svg?style=flat-square"
+        alt="Total Downloads"></a></p>
+<h2 id="what-it-does">What It Does</h2>
+<p>This package allows you to sync devices from <a href="https://www.shellhub.io">Shellhub</a> and save it in database.
+</p>
+<p>Installation:</p>
+<pre><code class="lang-bash"><span class="hljs-symbol">composer</span> <span class="hljs-meta">require</span> yashveersingh/shellhub-php
+</code></pre>
+<p>After installing package run:</p>
+<pre><code class="lang-bash">php artisan shellhub:<span class="hljs-keyword">install</span>
+</code></pre>
+<p>This will generate <code>shellhub.php</code> file in <code>config</code> directory.</p>
+<pre><code class="lang-PHP"><span class="php"><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-keyword">return</span> [
+    <span class="hljs-string">'url'</span> =&gt; env(<span class="hljs-string">'shell_hub_url'</span>, <span
+            class="hljs-string">''</span>),
+    <span class="hljs-string">'username'</span> =&gt; env(<span class="hljs-string">'shell_hub_username'</span>, <span
+            class="hljs-string">''</span>),
+    <span class="hljs-string">'password'</span> =&gt; env(<span class="hljs-string">'shell_hub_password'</span>, <span
+            class="hljs-string">''</span>),
+];</span>
+</code></pre>
+<p>You need to override <code>url</code> <code>username</code> <code>password</code></p>
+<p><strong>Note</strong>: You need to have cron setup every minute.</p>
+<pre><code class="lang-bash">php artisan schedule:<span class="hljs-keyword">run</span><span class="bash"></span>
+</code></pre>
+<h4 id="or">or</h4>
+<p>Manually run these command in order to fetch api key and devices</p>
+<pre><code class="lang-bash"><span class="hljs-selector-tag">php</span> <span
+        class="hljs-selector-tag">artisan</span> <span class="hljs-selector-tag">shellhub</span><span
+        class="hljs-selector-pseudo">:refresh_api_key</span>
+<span class="hljs-selector-tag">php</span> <span class="hljs-selector-tag">artisan</span> <span
+            class="hljs-selector-tag">shellhub</span><span class="hljs-selector-pseudo">:sync</span>
+</code></pre>
+<p>If u need to sync immediately, You can run this command manually.</p>
+<h3 id="testing">Testing</h3>
+<pre><code class="lang-bash">composer <span class="hljs-built_in">test</span>
+</code></pre>
+<h3 id="security">Security</h3>
+<p>If you discover any security-related issues, please email <a href="mailto:yashveersingh444444@gmail.com">yashveersingh444444@gmail.com</a>
+    instead of using the issue tracker.</p>
+<h2 id="license">License</h2>
+<p>The MIT License (MIT). Please see <a href="LICENSE.md">License File</a> for more information.</p>
 </body>
 </html>
